@@ -348,8 +348,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .features__item--left:after {
 	position: absolute;
-	top: 5px;
-	right: -12%;
+	top: 30px;
+	right: -13%;
 	content: "";
 	display: block;
 	width: 15px;
@@ -364,7 +364,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .features__item--right:before {
 	position: absolute;
-	top: 5px;
+	top: 15px;
 	left: -12%;
 	content: "";
 	display: block;
