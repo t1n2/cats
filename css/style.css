@@ -589,6 +589,12 @@ h1, h2, h3, h4, h5, h6 {
 	border-left: 1px solid #A07B50;
 	width: 15%;
 	height: inherit;
+	cursor: pointer;
+	transition: background-color .2s linear;
+}
+
+.right__part:hover {
+	background-color: #A07B50;
 }
 
 .right__part.active {
@@ -608,7 +614,6 @@ h1, h2, h3, h4, h5, h6 {
     height: 2px;
     background-color: #fff;
     opacity: 0.7;
-    cursor: pointer;
 }
 
 .item__symbol:after {
@@ -629,7 +634,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .item__answer {
+	display: none;
 	padding: 50px 40px;
+}
+
+.show {
+	display: block;
+}
+
+.hide {
+	display: none;
 }
 
 
