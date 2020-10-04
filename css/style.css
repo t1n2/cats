@@ -468,7 +468,7 @@ h1, h2, h3, h4, h5, h6 {
 	padding-bottom: 70px;
 }
 
-.inner__border {
+.item__border {
 	width: 100%;
 	max-width: 660px;
 	position: relative;
@@ -478,27 +478,27 @@ h1, h2, h3, h4, h5, h6 {
     border: 1px solid #A07B50;
 }
 
-.team__inner {
+.team__item {
 	width: 100%;
 	max-width: 660px;
 	padding: 70px 100px;
 	background-color: #1F1C1D; 
 }
 
-.team__inner .slider__btn {
+.team__item .slider__btn {
 	visibility: visible;
 }
 
-.team__inner .slider__btn:after {
+.team__item .slider__btn:after {
 	border-color: #A07B50;
 }
 
-.team__inner .slider__btn--prev {
+.team__item .slider__btn--prev {
 	left: -55%;
 	border-color: #A07B50;
 }
 
-.team__inner .slider__btn--next {
+.team__item .slider__btn--next {
 	right: -10%;
 }
 
@@ -638,13 +638,13 @@ h1, h2, h3, h4, h5, h6 {
 	padding: 50px 40px;
 }
 
-.item__show {
+.show {
 	display: block;
-	animation-name: item__show;
+	animation-name: show;
 	animation-duration: 1s;
 }
 
-@keyframes item__show {
+@keyframes show {
 	from {
 		opacity:0.1;
 	}
@@ -653,7 +653,7 @@ h1, h2, h3, h4, h5, h6 {
 	}
 }
 
-.item__hide {
+.hide {
 	display: none;
 }
 
@@ -813,21 +813,21 @@ h1, h2, h3, h4, h5, h6 {
 
 
 .team__photo {
-	max-width: 50%;
-	max-height: 50%;
-	top: 70%;
+	width: 30%;
+	height: auto;
+	top: 75%;
 	left: 60%;
 }
 
-.team__inner .slider__btn {
+.team__item .slider__btn {
 	top: 108%;
 }
 
-.team__inner .slider__btn--prev {
+.team__item .slider__btn--prev {
 	left: 55%;
 }
 
-.team__inner .slider__btn--next {
+.team__item .slider__btn--next {
 	right: 4%;
 }
 
@@ -971,7 +971,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Team */
 
-.inner__border {
+.item__border {
 	margin: 40px auto;
 }
 
@@ -1147,6 +1147,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
+/* Team */
+
+.team__item {
+	padding: 35px 50px;
+}
+
+
 /* Reviews */
 
 
@@ -1186,7 +1193,6 @@ h1, h2, h3, h4, h5, h6 {
 
 
 }
-
 
 
 @media (max-width: 420px) {
@@ -1265,11 +1271,11 @@ h1, h2, h3, h4, h5, h6 {
 /* Team */
 
 
-.inner__border {
+.item__border {
 	border: 0px solid;
 }
 
-.team__inner {
+.team__item {
 	padding: 100px 15px 15px;
 	text-align: center;
 }
@@ -1284,15 +1290,15 @@ h1, h2, h3, h4, h5, h6 {
 	bottom: 0;
 }
 
-.team__inner .slider__btn {
+.team__item .slider__btn {
 	top: 5%;
 }
 
-.team__inner .slider__btn--prev {
+.team__item .slider__btn--prev {
 	left: 20%;
 }
 
-.team__inner .slider__btn--next {
+.team__item .slider__btn--next {
 	right: 20%;
 }
 
