@@ -638,11 +638,22 @@ h1, h2, h3, h4, h5, h6 {
 	padding: 50px 40px;
 }
 
-.show {
+.item__show {
 	display: block;
+	animation-name: item__show;
+	animation-duration: 1s;
 }
 
-.hide {
+@keyframes item__show {
+	from {
+		opacity:0.1;
+	}
+	to {
+		opacity:1;
+	}
+}
+
+.item__hide {
 	display: none;
 }
 
