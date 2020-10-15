@@ -668,7 +668,7 @@ h1, h2, h3, h4, h5, h6 {
 	padding-bottom: 70px;
 }
 
-.reviews__inner {
+.reviews__item {
 	position: relative;
 	width: 100%;
 	max-width: 660px;
@@ -836,7 +836,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Reviews */
 
 
-.reviews__inner {
+.reviews__item {
 	margin: 0 auto;
 	margin-top: 150px;
 	padding-top: 200px;
@@ -995,7 +995,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Reviews */
 
-.reviews__inner {
+.reviews__item {
 	text-align: center;
 }
 
@@ -1076,9 +1076,6 @@ h1, h2, h3, h4, h5, h6 {
    display: none;
 }
 
-.features__item--right:before {
-
-}
 
 .features__item:nth-child(2),
 .features__item:nth-child(3),
@@ -1158,7 +1155,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Reviews */
 
 
-.reviews__inner {
+.reviews__item {
 	padding: 90px 50px;
 	padding-top: 120px;
 
@@ -1307,7 +1304,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Reviews */
 
 
-.reviews__inner {
+.reviews__item {
 	margin-top: 70px;
 	padding: 50px;
     padding-top: 100px;
@@ -1344,7 +1341,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Reviews */
 
 
-.reviews__inner {
+.reviews__item {
 	padding: 20px;
     padding-top: 80px;
 }
