@@ -2,6 +2,24 @@
 
 window.addEventListener('DOMContentLoaded', () => {
 
+	// Care Accordeon
+
+	const careBtn = document.querySelectorAll('.care__item .slider__btn.slider__btn--next'),
+		  careContent = document.querySelectorAll('.care__text-drop');
+
+	function accordeon(btn, content, btnAnimation, selector) {
+		btn.forEach((item, i) => {
+			item.addEventListener('click', () => {
+				item.classList.toggle('active');
+				content[i].classList.toggle('show');
+				btnAnimation[i].classList.toggle(selector);
+			});
+		});
+	}
+
+	accordeon(careBtn, careContent, careBtn, 'rotate');
+
+
 	// Team Slider
 
 	const teamItem = document.querySelectorAll('.item__border'),
@@ -52,16 +70,10 @@ window.addEventListener('DOMContentLoaded', () => {
 	// FAQ accordeon
 
 	const faqBtn = document.querySelectorAll('.right__part'),
-	answer = document.querySelectorAll('.item__answer'),
-	itemSymbol = document.querySelectorAll('.item__symbol');
+		  faqContent = document.querySelectorAll('.item__answer'),
+		  btnSymbol = document.querySelectorAll('.item__symbol');
 
-	faqBtn.forEach((item, i) => {
-		item.addEventListener('click', () => {
-			item.classList.toggle('active');
-			answer[i].classList.toggle('show');
-			itemSymbol[i].classList.toggle('item__symbol--minus');
-		});
-	});
+	accordeon(faqBtn, faqContent, btnSymbol, 'item__symbol--minus');
 
 	// Reviews Slider
 
