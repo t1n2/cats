@@ -893,8 +893,6 @@ h1, h2, h3, h4, h5, h6 {
 	max-width: 700px;
 }
 
-
-
 }
 
 
@@ -979,9 +977,9 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Care */
 
-.care__item {
+.care__col {
 	width: 100%;
-	margin: 20px 40px;
+	margin: 0px 40px;
 }
 
 
@@ -1272,8 +1270,6 @@ h1, h2, h3, h4, h5, h6 {
 /* Care */
 
 .care__item {
-	width: 100%;
-	margin: 20px 40px;
 	padding: 10px 20px;
 }
 
