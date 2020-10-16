@@ -2,6 +2,44 @@
 
 window.addEventListener('DOMContentLoaded', () => {
 
+	const tabsParent = document.querySelector('.slider__menu'),
+		  tabs = document.querySelectorAll('.slider__link'),
+		  tabsContent = document.querySelectorAll('.slider__inner');
+	           
+    
+	function hideTabsContent() {
+		tabsContent.forEach(item => {
+			item.classList.add('hide');
+			item.classList.remove('show');
+		})
+
+		tabs.forEach(item => {
+            item.classList.remove('active');
+        });
+	};
+
+	function showTabsContent(i) {
+		tabsContent[i].classList.add('show');
+		tabsContent[i].classList.remove('hide');
+		tabs[i].classList.add('active');
+	};
+
+	hideTabsContent();
+	showTabsContent(0);
+	
+	tabsParent.addEventListener ('click', (e) => {
+		const target = e.target;
+
+		if (target && target.classList.contains('slider__link')) {
+			tabs.forEach((item, i) => {
+				if (target == item) {	
+					hideTabsContent();
+					showTabsContent(i);
+				}
+			})
+		}
+	});
+
 	// Care Accordeon
 
 	const careBtn = document.querySelectorAll('.care__item .slider__btn.slider__btn--next'),

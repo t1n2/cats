@@ -183,12 +183,13 @@ h1, h2, h3, h4, h5, h6 {
 	margin-bottom: 50px;
 }
 
-.slider__menu a {
+.slider__link {
 	text-decoration: none;
 	color: rgba(255, 255, 255, 0.2);
 	margin-right: 40px;
 	font-weight: bold;
 	font-size: 18px;
+	cursor: pointer;
 	transition: color .2s linear;
 }
 
@@ -240,10 +241,14 @@ h1, h2, h3, h4, h5, h6 {
 
 .slider__inner {
 	position: relative;
+	display: flex;
 	width: 100%;
 	max-width: 1023px;
-	display: flex;
 	margin: 0 auto;
+}
+
+.slider__content {
+	display: flex;
 }
 
 .slider__col {
@@ -264,9 +269,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .right__img {
-	max-width: 100%;
-	height: auto;
-	max-height: 482px;
+	max-height: 460px;
 }
 
 /* Features */
@@ -921,7 +924,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Pets */
 
 
-.slider__inner {
+.slider__content {
 	display: block;
 }
 
@@ -929,7 +932,7 @@ h1, h2, h3, h4, h5, h6 {
 	margin-right: 0;
 }
 
-.slider__inner {
+.slider__content {
 	min-height: 510px;
 }
 
@@ -1058,12 +1061,12 @@ h1, h2, h3, h4, h5, h6 {
 	padding: 50px 0;
 }
 
-.slider__inner {
+.slider__content {
     min-height: auto;
 }
 
 
-.slider__col:nth-child(3) {
+.slider__col:first-child {
 	visibility: hidden;
 }
 
@@ -1265,9 +1268,6 @@ h1, h2, h3, h4, h5, h6 {
     display: none;
 }
 
-.left__img:first-child {
-
-}
 
 /* Care */
 
