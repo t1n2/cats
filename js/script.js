@@ -11,18 +11,18 @@ window.addEventListener('DOMContentLoaded', () => {
 		tabsContent.forEach(item => {
 			item.classList.add('hide');
 			item.classList.remove('show');
-		})
+		});
 
 		tabs.forEach(item => {
             item.classList.remove('active');
         });
-	};
+	}
 
 	function showTabsContent(i) {
 		tabsContent[i].classList.add('show');
 		tabsContent[i].classList.remove('hide');
 		tabs[i].classList.add('active');
-	};
+	}
 
 	hideTabsContent();
 	showTabsContent(0);
@@ -36,7 +36,7 @@ window.addEventListener('DOMContentLoaded', () => {
 					hideTabsContent();
 					showTabsContent(i);
 				}
-			})
+			});
 		}
 	});
 
@@ -60,49 +60,47 @@ window.addEventListener('DOMContentLoaded', () => {
 
 	// Team Slider
 
-	const teamItem = document.querySelectorAll('.item__border'),
-	teamBtnNext = document.querySelectorAll('.team__item .slider__btn.slider__btn--next'),
-	teamBtnPrev = document.querySelectorAll('.team__item .slider__btn.slider__btn--prev');
+	const teamSlides = document.querySelectorAll('.item__border'),
+		  teamBtnNext = document.querySelectorAll('.team__item .slider__btn.slider__btn--next'),
+		  teamBtnPrev = document.querySelectorAll('.team__item .slider__btn.slider__btn--prev');
+	let slideIndex = 1;
 
-	function hideSliderContent(content) {
-		content.forEach(item => {
-			item.classList.add('hide');
-			item.classList.remove('show');
-		});
+	showSlides(teamSlides, slideIndex);
+
+    function showSlides(slideList, n) {
+		if (n > slideList.length) {
+			slideIndex = 1;
+		}
+
+		if (n < 1) {
+			slideIndex = slideList.length;
+		}
+
+		slideList.forEach(item => item.classList.add('hide'));
+
+		slideList[slideIndex - 1].classList.add('show', 'fade');
+		slideList[slideIndex - 1].classList.remove('hide');
 	}
 
-	function showSliderContent(content, i) {
-		content[i].classList.remove('hide');
-		content[i].classList.add('show');
+	function plusSlides(slideList, n) {
+		showSlides(slideList, slideIndex += n);
 	}
-
-	hideSliderContent(teamItem);
-	showSliderContent(teamItem, 0);
-
-	function sliderPrev(btn, content) {
-		btn.forEach((item, i) => {
+	
+	function slideBtns(slideList, prevBtn, nextBtn) {
+		prevBtn.forEach(item => {
 			item.addEventListener('click', () => {
-				if (i > 0 && i < btn.length) {
-					hideSliderContent(content);
-					showSliderContent(content, i - 1);
-				}
+				plusSlides(slideList, -1);
+			});
+		});
+	
+		nextBtn.forEach(item => {
+			item.addEventListener('click', () => {
+				plusSlides(slideList, 1);
 			});
 		});
 	}
 
-	function sliderNext(btn, content) {
-		btn.forEach((item, i) => {
-			item.addEventListener('click', () => {
-				if (i < btn.length - 1) {
-					hideSliderContent(content);
-					showSliderContent(content, i + 1);
-				}
-			});
-		});
-	}
-
-	sliderPrev(teamBtnPrev, teamItem);
-	sliderNext(teamBtnNext, teamItem);
+	slideBtns(teamSlides, teamBtnPrev, teamBtnNext);
 
 
 	// FAQ accordeon
@@ -112,31 +110,23 @@ window.addEventListener('DOMContentLoaded', () => {
 		  btnSymbol = document.querySelectorAll('.item__symbol');
 
 	accordeon(faqBtn, faqContent, btnSymbol, 'item__symbol--minus');
+	
 
 	// Reviews Slider
 
-	const reviewsSlider = document.querySelectorAll('.reviews__item'),
-	reviewsBtnNext = document.querySelectorAll('.reviews__item .slider__btn.slider__btn--next'),
-	reviewsBtnPrev = document.querySelectorAll('.reviews__item .slider__btn.slider__btn--prev');
+	const reviewsSlides = document.querySelectorAll('.reviews__item'),
+		  reviewsBtnNext = document.querySelectorAll('.reviews__item .slider__btn.slider__btn--next'),
+		  reviewsBtnPrev = document.querySelectorAll('.reviews__item .slider__btn.slider__btn--prev');
 
-	hideSliderContent(reviewsSlider);
-	showSliderContent(reviewsSlider, 0);
-
-	sliderPrev(reviewsBtnPrev, reviewsSlider);
-	sliderNext(reviewsBtnNext, reviewsSlider);
+	showSlides(reviewsSlides, slideIndex);
+	slideBtns(reviewsSlides, reviewsBtnPrev, reviewsBtnNext)
 	
 	let i = 0;
-	const timerId = setInterval(function () {
-		i++;
-        if (i < reviewsSlider.length) {
-			hideSliderContent(reviewsSlider);
-			showSliderContent(reviewsSlider, i);
-		} else {
-			i = 0;
-			hideSliderContent(reviewsSlider);
-			showSliderContent(reviewsSlider, i);
-		}
+	
+	setInterval(() => {
+		plusSlides(reviewsSlides, 1)
 	}, 3000);
+	
 
 });
 
