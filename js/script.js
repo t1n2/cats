@@ -63,45 +63,54 @@ window.addEventListener('DOMContentLoaded', () => {
 	const teamSlides = document.querySelectorAll('.item__border'),
 		  teamBtnNext = document.querySelectorAll('.team__item .slider__btn.slider__btn--next'),
 		  teamBtnPrev = document.querySelectorAll('.team__item .slider__btn.slider__btn--prev');
-	let slideIndex = 1;
 
-	showSlides(teamSlides, slideIndex);
-
-    function showSlides(slideList, n) {
-		if (n > slideList.length) {
-			slideIndex = 1;
-		}
-
-		if (n < 1) {
-			slideIndex = slideList.length;
-		}
-
-		slideList.forEach(item => item.classList.add('hide'));
-
-		slideList[slideIndex - 1].classList.add('show', 'fade');
-		slideList[slideIndex - 1].classList.remove('hide');
+	function hideSlideContent(slides) {
+		slides.forEach(item => {
+			item.classList.add('hide');
+			item.classList.remove('show');
+		})
 	}
 
-	function plusSlides(slideList, n) {
-		showSlides(slideList, slideIndex += n);
+	function showSlideContent(slides, i = 0) {
+		slides[i].classList.add('show', 'fade');
+		slides[i].classList.remove('hide');
 	}
-	
-	function slideBtns(slideList, prevBtn, nextBtn) {
-		prevBtn.forEach(item => {
+
+	hideSlideContent(teamSlides);
+	showSlideContent(teamSlides);
+
+	function prevBtn(slides, btn) {
+		btn.forEach((item, i) => {
 			item.addEventListener('click', () => {
-				plusSlides(slideList, -1);
-			});
-		});
-	
-		nextBtn.forEach(item => {
-			item.addEventListener('click', () => {
-				plusSlides(slideList, 1);
+				if (i <= 0) {
+					i = slides.length;
+					hideSlideContent(slides);
+					showSlideContent(slides, i - 1);
+				} else {
+					hideSlideContent(slides);
+					showSlideContent(slides, i - 1);
+				}
 			});
 		});
 	}
 
-	slideBtns(teamSlides, teamBtnPrev, teamBtnNext);
+	function nextBtn(slides, btn) {
+		btn.forEach((item, i) => {
+			item.addEventListener('click', () => {
+				if (i < slides.length - 1) {
+					hideSlideContent(slides);
+					showSlideContent(slides, i + 1);
+				} else {
+					i = 0;
+					hideSlideContent(slides);
+					showSlideContent(slides, i);
+				}
+			});
+		});
+	}
 
+	prevBtn(teamSlides, teamBtnPrev);
+	nextBtn(teamSlides, teamBtnNext);
 
 	// FAQ accordeon
 
@@ -110,21 +119,28 @@ window.addEventListener('DOMContentLoaded', () => {
 		  btnSymbol = document.querySelectorAll('.item__symbol');
 
 	accordeon(faqBtn, faqContent, btnSymbol, 'item__symbol--minus');
-	
+
 
 	// Reviews Slider
 
 	const reviewsSlides = document.querySelectorAll('.reviews__item'),
 		  reviewsBtnNext = document.querySelectorAll('.reviews__item .slider__btn.slider__btn--next'),
 		  reviewsBtnPrev = document.querySelectorAll('.reviews__item .slider__btn.slider__btn--prev');
+	
+	hideSlideContent(reviewsSlides);
+	showSlideContent(reviewsSlides);
 
-	showSlides(reviewsSlides, slideIndex);
-	slideBtns(reviewsSlides, reviewsBtnPrev, reviewsBtnNext)
-	
-	let i = 0;
-	
+	prevBtn(reviewsSlides, reviewsBtnPrev);
+	nextBtn(reviewsSlides, reviewsBtnNext);
+
+    let n = 0;
 	setInterval(() => {
-		plusSlides(reviewsSlides, 1)
+		n++;
+		if (n > reviewsSlides.length - 1) {
+			n = 0;
+		}
+		hideSlideContent(reviewsSlides);
+		showSlideContent(reviewsSlides, n);
 	}, 3000);
 	
 
