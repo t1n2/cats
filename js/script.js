@@ -83,9 +83,8 @@ window.addEventListener('DOMContentLoaded', () => {
 		btn.forEach((item, i) => {
 			item.addEventListener('click', () => {
 				if (i <= 0) {
-					i = slides.length;
 					hideSlideContent(slides);
-					showSlideContent(slides, i - 1);
+					showSlideContent(slides, slides.length - 1);
 				} else {
 					hideSlideContent(slides);
 					showSlideContent(slides, i - 1);
@@ -101,9 +100,8 @@ window.addEventListener('DOMContentLoaded', () => {
 					hideSlideContent(slides);
 					showSlideContent(slides, i + 1);
 				} else {
-					i = 0;
 					hideSlideContent(slides);
-					showSlideContent(slides, i);
+					showSlideContent(slides, 0);
 				}
 			});
 		});
